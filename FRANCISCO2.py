@@ -6,7 +6,7 @@ import plotly.express as px
 st.title('Reporte Meteorológico')
 
 # Cargar el archivo Excel directamente desde el repositorio
-archivo = 'D:/AUTOMATICAS FTP/PRUEBANUEVA.xlsx'
+archivo = 'PRUEBANUEVA.xlsx'
 
 try:
     df = pd.read_excel(archivo)
