@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # Título de la aplicación
-st.title('Reporte Meteorológico')
+st.title('Reporte Meteorológico - Febrero 2025')
 
 # Cargar el archivo Excel directamente desde el repositorio
 archivo = 'PRUEBANUEVA.xlsx'
@@ -27,11 +27,11 @@ try:
     # Gráfico de barras para 'Acumulado' y '1*Normal Decadiaria'
     if 'Estación' in df.columns and 'Acumulado' in df.columns and '1*Normal Decadiaria' in df.columns:
         st.subheader('Gráfico de Barras - Precipitación')
-        fig = px.bar(df, x='Estación', y=['Acumulado', '1*Normal Decadiaria'],
+        fig = px.bar(df, x='Estación', y=['Acumulado', '1*N. Decadiaria'],
                      labels={'Estación': 'Estación', 'value': 'mm'}, barmode='group')
         st.plotly_chart(fig)
     else:
-        st.error("Las columnas 'Estación', 'Acumulado' o '1*Normal Decadiaria' no están en el archivo.")
+        st.error("Las columnas 'Estación', 'Acumulado' o '1*N. Decadiaria' no están en el archivo.")
 
     # Gráfico de barras para 'Anomalía'
     if 'Estación' in df.columns and 'Anomalía' in df.columns:
