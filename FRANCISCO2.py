@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # Título de la aplicación
-st.title('Reporte Meteorológico - Febrero 2025')
+st.title('Reporte Meteorológico - Feb 2025')
 
 # Cargar el archivo Excel directamente desde el repositorio
 archivo = 'PRUEBANUEVA.xlsx'
@@ -49,7 +49,7 @@ try:
         )
         fig_anomalia.update_layout(
             xaxis_title='Estación',
-            yaxis_title='Anomalía (mm)',
+            yaxis_title='Anomalía',
             title='Anomalía de Precipitación'
         )
         st.plotly_chart(fig_anomalia)
