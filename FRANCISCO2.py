@@ -25,7 +25,7 @@ try:
     st.dataframe(df)
 
     # Gráfico de barras para 'Acumulado' y '1*Normal Decadiaria'
-    if 'Estación' in df.columns and 'Acumulado' in df.columns and '1*Normal Decadiaria' in df.columns:
+    if 'Estación' in df.columns and 'Acumulado' in df.columns and '1*N. Decadiaria' in df.columns:
         st.subheader('Gráfico de Barras - Precipitación')
         fig = px.bar(df, x='Estación', y=['Acumulado', '1*N. Decadiaria'],
                      labels={'Estación': 'Estación', 'value': 'mm'}, barmode='group')
