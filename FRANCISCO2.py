@@ -13,7 +13,7 @@ try:
     df = pd.read_excel(archivo)
 
     # Redondear la columna 'Acumulado' a 1 decimal
-    if 'Acumulado' in df.columns:
+    if '1*Decada' in df.columns:
         df['1*Decada'] = df['1*Decada'].round(1)
 
     # Redondear la columna 'Anomalía' a 1 decimal
