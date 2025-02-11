@@ -14,7 +14,7 @@ try:
 
     # Redondear la columna 'Acumulado' a 1 decimal
     if 'Acumulado' in df.columns:
-        df['Acumulado'] = df['Acumulado'].round(1)
+        df['1*Decada'] = df['1*Decada'].round(1)
 
     # Redondear la columna 'Anomalía' a 1 decimal
     if 'Anomalía' in df.columns:
@@ -25,13 +25,13 @@ try:
     st.dataframe(df)
 
     # Gráfico de barras para 'Acumulado' y '1*Normal Decadiaria'
-    if 'Estación' in df.columns and 'Acumulado' in df.columns and '1*N. Decadiaria' in df.columns:
+    if 'Estación' in df.columns and '1*Decada' in df.columns and '1*N. Decadiaria' in df.columns:
         st.subheader('Gráfico de Barras - Precipitación')
-        fig = px.bar(df, x='Estación', y=['Acumulado', '1*N. Decadiaria'],
+        fig = px.bar(df, x='Estación', y=['1*Decada', '1*N. Decadiaria'],
                      labels={'Estación': 'Estación', 'value': 'mm'}, barmode='group')
         st.plotly_chart(fig)
     else:
-        st.error("Las columnas 'Estación', 'Acumulado' o '1*N. Decadiaria' no están en el archivo.")
+        st.error("Las columnas 'Estación', '1*Decada' o '1*N. Decadiaria' no están en el archivo.")
 
     # Gráfico de barras para 'Anomalía'
     if 'Estación' in df.columns and 'Anomalía' in df.columns:
