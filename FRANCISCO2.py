@@ -50,7 +50,7 @@ try:
         fig_anomalia.update_layout(
             xaxis_title='Estación',
             yaxis_title='Anomalía',
-            title='Anomalía de Precipitación'
+            title='Anomalía de Precipitación - 1*Decada'
         )
         st.plotly_chart(fig_anomalia)
     else:
