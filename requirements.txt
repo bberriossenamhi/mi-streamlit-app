@@ -4,3 +4,4 @@ pandas
 numpy
 openpyxl
 folium
+streamlit_folium
