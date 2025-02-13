@@ -60,14 +60,14 @@ try:
 
     # Agregar el mapa con el GeoJSON
     st.subheader("Estaciones Meteorológicas - Dirección Zonal 6")
-    geojson_file = "D:/GEOJSON/arequipa.geojson"
+    geojson_file = "arequipa.geojson"
     
     try:
         m = folium.Map(location=[-16.409, -71.537], zoom_start=7)
         folium.GeoJson(geojson_file, name="Estaciones Meteorológicas").add_to(m)
 
         # Cargar datos de estaciones con latitud, longitud y precipitación
-        archivo_estaciones = 'D:/AUTOMATICAS FTP/COORDENADAS.xlsx'
+        archivo_estaciones = 'COORDENADAS.xlsx'
         
         try:
             df_estaciones = pd.read_excel(archivo_estaciones)
