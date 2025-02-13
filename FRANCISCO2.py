@@ -59,26 +59,41 @@ try:
     else:
         st.warning("Las columnas 'Acumulado Mes' o 'N. Mensual' no están en el archivo.")
 
-
-     # Gráfico de barras para 'Anomalía Mes'
+    # Gráfico de barras para 'Anomalía Mes'
     if 'Estación' in df.columns and 'Anomalía Mes' in df.columns:
         st.subheader('Anomalía de Precipitación - Mensual')
         colores_anomalia = ['blue' if val > 0 else 'red' for val in df['Anomalía Mes']]
 
-        fig_anomalia = go.Figure(
+        fig_anomalia_mes = go.Figure(
             data=[go.Bar(
                 x=df['Estación'],
                 y=df['Anomalía Mes'],
                 marker_color=colores_anomalia
             )]
         )
-        fig_anomalia.update_layout(
+        fig_anomalia_mes.update_layout(
             xaxis_title='Estación',
             yaxis_title='Anomalía Mes'
         )
-        st.plotly_chart(fig_anomalia)
+        st.plotly_chart(fig_anomalia_mes)
     else:
         st.warning("La columna 'Anomalía Mes' no está en el archivo.")   
+
+    # Agregar el mapa con el GeoJSON
+    st.subheader("Estaciones Meteorológicas - Dirección Zonal 6")
+
+    geojson_file = "D:/GEOJSON/arequipa.geojson"
+
+    try:
+        # Crear mapa centrado en Perú
+        m = folium.Map(location=[-16.409, -71.537], zoom_start=7)
+        folium.GeoJson(geojson_file, name="Estaciones Meteorológicas").add_to(m)
+
+        # Mostrar el mapa en Streamlit
+        st_folium(m, width=700, height=500)
+
+    except Exception as e:
+        st.error(f"Error al cargar el GeoJSON: {e}")
 
 except Exception as e:
     st.error(f"Ocurrió un error al cargar el archivo: {e}")
