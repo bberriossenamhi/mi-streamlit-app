@@ -84,7 +84,7 @@ try:
     # Agregar el mapa con el GeoJSON
     st.subheader("Estaciones Meteorológicas - Dirección Zonal 6")
 
-    geojson_file = "D:/GEOJSON/arequipa.geojson"
+    geojson_file = "arequipa.geojson"
 
     try:
         # Crear mapa centrado en Perú
