@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import folium
+from streamlit_folium import st_folium
 
 # Título de la aplicación
 st.title('Reporte Meteorológico - Feb 2025')
